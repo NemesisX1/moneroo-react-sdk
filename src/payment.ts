@@ -5,7 +5,7 @@ const MONEROO_API_URL = "https://api.moneroo.io/v1";
 export async function initiatePayment(
   params: PaymentInitParams,
   secretKey: string
-): Promise<PaymentResponse> {
+): Promise<void> {
   const response = await fetch(`${MONEROO_API_URL}/payments/initialize`, {
     method: "POST",
     headers: {
@@ -23,7 +23,7 @@ export async function initiatePayment(
         last_name: params.lastName,
       },
       return_url: params.returnUrl,
-      methods: params.methods || ["mtn_bj"], // Par défaut, un moyen de paiement
+      methods: params.methods || ["mtn_bj"],
     }),
   });
 
@@ -31,5 +31,11 @@ export async function initiatePayment(
     throw new Error(`Erreur Moneroo: ${response.statusText}`);
   }
 
-  return response.json();
+  const data = await response.json();
+  if (!data.checkout_url) {
+    throw new Error("checkout_url est manquant !");
+  }
+
+  // ✅ Redirection automatique
+  window.location.href = data.checkout_url;
 }
