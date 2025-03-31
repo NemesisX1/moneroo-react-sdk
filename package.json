@@ -1,8 +1,9 @@
 {
-  "name": "moneroo-react-sdk-",
+  "name": "moneroo-react-sdk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
