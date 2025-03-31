@@ -4,7 +4,8 @@ const MONEROO_API_URL = "https://api.moneroo.io/v1";
 
 export async function initiatePayment(
   params: PaymentInitParams,
-  secretKey: string
+  secretKey: string,
+  autoRedirect: boolean = true
 ): Promise<void> {
   console.log("🔍 SDK - Données envoyées :", params);
 
@@ -29,20 +30,18 @@ export async function initiatePayment(
     }),
   });
 
-  console.log("📡 SDK - Réponse Moneroo brut :", response);
-
   if (!response.ok) {
     throw new Error(`Erreur Moneroo: ${response.statusText}`);
   }
 
   const data = await response.json();
-  console.log("✅ SDK - Réponse JSON :", data);
-
   if (!data.checkout_url) {
     throw new Error("checkout_url est manquant !");
   }
 
-  // ✅ Redirection automatique
-  console.log("🔗 Redirection vers :", data.checkout_url);
-  window.location.assign = data.checkout_url;
+  if (autoRedirect) {
+    window.location.href = data.checkout_url;
+  }
+
+  return data.checkout_url;
 }
