@@ -5,7 +5,6 @@ const MONEROO_API_URL = "https://api.moneroo.io/v1";
 export async function initiatePayment(
   params: PaymentInitParams,
   secretKey: string
-  //   autoRedirect: boolean = true
 ): Promise<void> {
   console.log("🔍 SDK - Données envoyées :", params);
 
@@ -34,21 +33,21 @@ export async function initiatePayment(
     throw new Error(`Erreur Moneroo: ${response.statusText}`);
   }
 
-  window.location.href = response.data?.checkout_url;
+  const data: PaymentResponse = await response.json();
+  console.log("✅ Réponse Moneroo :", data);
 
-  //   const PaymentResponse = await response.json();
-  //   console.log("✅ Réponse Moneroo :", PaymentResponse);
-
-  //   if (!PaymentResponse.data?.checkout_url) {
-  //     console.error("❌ checkout_url est manquant dans la réponse !");
-  //     throw new Error("checkout_url est manquant !");
-  //   }
-
-  //   // Redirection automatique depuis le SDK
-  //   //   if (autoRedirect) {
-  //   console.log("🔗 Redirection vers :", PaymentResponse.data.checkout_url);
-  //   window.location.href = PaymentResponse.data.checkout_url;
-  //   //   }
+  if (!data.data?.checkout_url) {
+    console.error("❌ checkout_url est manquant dans la réponse !");
+    throw new Error("checkout_url est manquant !");
+  }
+  
+  // Vérification si l'environnement est un navigateur avant la redirection
+  if (typeof window !== "undefined") {
+    console.log("🔗 Redirection vers :", data.data.checkout_url);
+    window.location.href = data.data.checkout_url;
+  } else {
+    console.log("🔗 Redirection non effectuée - environnement non navigateur.");
+  }
 
   return;
 }
