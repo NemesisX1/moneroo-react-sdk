@@ -35,13 +35,14 @@ export async function initiatePayment(
   }
 
   const data = await response.json();
-  if (!data.checkout_url) {
+  if (!data.data || !data.data.checkout_url) {
     throw new Error("checkout_url est manquant !");
   }
 
   if (autoRedirect) {
-    window.location.href = data.checkout_url;
+    console.log("🚀 Redirection automatique vers :", data.data.checkout_url);
+    window.location.href = data.data.checkout_url;
   }
 
-  return data.checkout_url;
+  return data.data.checkout_url;
 }
