@@ -34,18 +34,18 @@ export async function initiatePayment(
     throw new Error(`Erreur Moneroo: ${response.statusText}`);
   }
 
-  const data: PaymentResponse = await response.json();
-  console.log("✅ Réponse Moneroo :", data);
+  const PaymentResponse = await response.json();
+  console.log("✅ Réponse Moneroo :", PaymentResponse);
 
-  if (!data.data?.checkout_url) {
+  if (!PaymentResponse.data?.checkout_url) {
     console.error("❌ checkout_url est manquant dans la réponse !");
     throw new Error("checkout_url est manquant !");
   }
 
   // Redirection automatique depuis le SDK
   //   if (autoRedirect) {
-  console.log("🔗 Redirection vers :", data.data.checkout_url);
-  window.location.href = data.data.checkout_url;
+  console.log("🔗 Redirection vers :", PaymentResponse.data.checkout_url);
+  window.location.href = PaymentResponse.data.checkout_url;
   //   }
 
   return;
