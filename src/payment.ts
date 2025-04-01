@@ -41,7 +41,7 @@ export async function initiatePayment(
 
   if (autoRedirect) {
     console.log("🚀 Redirection automatique vers :", data.data.checkout_url);
-    window.location.href = data.data.checkout_url;
+    window.location.assign = data.data.checkout_url;
   }
 
   return data.data.checkout_url;

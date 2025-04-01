@@ -10,7 +10,12 @@ export interface PaymentInitParams {
 }
 
 export interface PaymentResponse {
-  checkout_url: string;
+  message: string;
+  data: {
+    id: string;
+    checkout_url: string;
+  };
+  errors?: any;
 }
 
 export interface TransactionStatus {
