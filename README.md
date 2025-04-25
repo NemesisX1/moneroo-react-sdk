@@ -1,6 +1,10 @@
-# # Moneroo React SDK
+<div align="center">
 
-[Slack](https://moneroo.slack.com) · [Website](https://moneroo.io) · [Contact](mailto:hello@moneroo.io) · [Documentation](https://docs.moneroo.io)
+# Moneroo React SDK
+
+[Slack](https://moneroo.slack.com) · [Website](https://www.moneroo.io) · [Contact](https://moneroo.io/contact) · [Documentation](https://docs.moneroo.io)
+
+</div>
 
 ## Overview
 
