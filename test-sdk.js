@@ -1,22 +1,17 @@
-import { initiatePayment } from "./dist/payment.js"; // Adapter selon l'export du SDK
+import { checkTransactionStatus } from "./dist/transaction.js"; // Assure-toi que le chemin est correct
 
-const params = {
-  amount: 1000,
-  currency: "XOF",
-  description: "Test paiement",
-  email: "test@example.com",
-  firstName: "John",
-  lastName: "Doe",
-  returnUrl: "https://example.com/thank-you",
-};
+async function testTransaction() {
+  console.log("🧪 Test de la récupération du statut de transaction...");
 
-const secretKey = "pvk_pg8twv|01JQH06R52P7ZR3H05B2TA6ZRM";
-
-(async () => {
   try {
-    console.log("🚀 Test du SDK en local...");
-    await initiatePayment(params, secretKey);
+    const transactionId = "py_mnelmvz2qvqs"; // Remplace par une transaction valide
+    const secretKey = "pvk_pg8twv|01JQH06R52P7ZR3H05B2TA6ZRM"; // Remplace par ta clé API valide
+
+    const status = await checkTransactionStatus(transactionId, secretKey);
+    console.log("✅ Statut de la transaction :", status);
   } catch (error) {
-    console.error("❌ Erreur lors du test du SDK :", error);
+    console.error("❌ Erreur lors du test de la transaction :", error);
   }
-})();
+}
+
+testTransaction();
