@@ -1,16 +1,40 @@
 {
   "name": "moneroo-react-sdk",
   "version": "1.0.12",
-  "description": "",
+  "description": "Official React SDK for Moneroo payment integration in Africa",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "moneroo",
+    "payment",
+    "africa",
+    "react",
+    "mobile-money",
+    "fintech",
+    "sdk",
+    "payment-gateway"
+  ],
+  "author": "Moneroo <hello@moneroo.io> (https://www.moneroo.io)",
+  "license": "MIT",
   "packageManager": "pnpm@10.7.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NemesisX1/moneroo-react-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NemesisX1/moneroo-react-sdk/issues"
+  },
+  "homepage": "https://github.com/NemesisX1/moneroo-react-sdk#readme",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
@@ -19,5 +43,12 @@
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

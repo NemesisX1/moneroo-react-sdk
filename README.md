@@ -2,6 +2,11 @@
 
 # Moneroo React SDK
 
+[![npm version](https://img.shields.io/npm/v/moneroo-react-sdk.svg?style=flat-square)](https://www.npmjs.com/package/moneroo-react-sdk)
+[![npm downloads](https://img.shields.io/npm/dm/moneroo-react-sdk.svg?style=flat-square)](https://www.npmjs.com/package/moneroo-react-sdk)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/moneroo-react-sdk?style=flat-square)](https://bundlephobia.com/package/moneroo-react-sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
 [Slack](https://moneroo.slack.com) · [Website](https://www.moneroo.io) · [Contact](https://moneroo.io/contact) · [Documentation](https://docs.moneroo.io)
 
 </div>
