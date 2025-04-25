@@ -7,7 +7,7 @@
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/moneroo-react-sdk?style=flat-square)](https://bundlephobia.com/package/moneroo-react-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-[Slack](https://moneroo.slack.com) · [Website](https://www.moneroo.io) · [Contact](https://moneroo.io/contact) · [Documentation](https://docs.moneroo.io)
+[Website](https://www.moneroo.io) · [Contact](https://moneroo.io/contact) · [Documentation](https://docs.moneroo.io)
 
 </div>
 
